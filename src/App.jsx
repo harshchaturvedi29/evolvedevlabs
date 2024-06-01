@@ -1,11 +1,23 @@
+
 import React from 'react'
 import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import Services from './components/Services'
+import About from './components/About'
+import Portfolio from './components/Portfolio'
+import Team from './components/Team'
 
-function App() {
+
+const App = () => {
   return (
     <div>
       <Navbar />
-      App
+      <Hero />
+      <About />
+      <Services />
+      <Portfolio />
+      <Team />
+      
     </div>
   )
 }
