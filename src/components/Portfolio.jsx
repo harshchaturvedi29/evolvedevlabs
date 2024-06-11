@@ -2,10 +2,26 @@ import React, { useState } from "react";
 
 const Portfolio = () => {
   const [showCard, setShowCard] = useState("all");
-
-  const handleProject = (category) => {
-    setShowCard(category);
-  };
+  const projects = [
+    {
+      imageLink: "https://i.ibb.co/64WfFPt/image-01.jpg",
+      title: "Creative Agency",
+      button: "View Details",
+      buttonHref: "#",
+    },
+    {
+      imageLink: "https://i.ibb.co/64WfFPt/image-01.jpg",
+      title: "Creative Agency",
+      button: "View Details",
+      buttonHref: "#",
+    },
+    {
+      imageLink: "https://i.ibb.co/64WfFPt/image-01.jpg",
+      title: "Creative Agency",
+      button: "View Details",
+      buttonHref: "#",
+    },
+  ];
 
   return (
     <>
@@ -28,7 +44,7 @@ const Portfolio = () => {
             </div>
           </div>
 
-          <div className="w-full flex flex-wrap justify-center -mx-4">
+          {/* <div className="w-full flex flex-wrap justify-center -mx-4">
             <div className="w-full px-4">
               <ul className="flex flex-wrap justify-center mb-12 space-x-1">
                 <li className="mb-1">
@@ -93,56 +109,19 @@ const Portfolio = () => {
                 </li>
               </ul>
             </div>
-          </div>
+          </div> */}
           <div className="flex flex-wrap -mx-4">
-            <PortfolioCard
-              ImageHref="https://i.ibb.co/64WfFPt/image-01.jpg"
-              category="Branding"
-              title="Creative Agency"
-              button="View Details"
-              buttonHref="#"
-              showCard={showCard}
-            />
-            <PortfolioCard
-              ImageHref="https://i.ibb.co/PT7ghRs/image-06.jpg"
-              category="marketing"
-              title="Creative Agency"
-              button="View Details"
-              buttonHref="#"
-              showCard={showCard}
-            />
-            <PortfolioCard
-              ImageHref="https://i.ibb.co/vkt8C1P/image-02.jpg"
-              category="marketing"
-              title="Creative Agency"
-              button="View Details"
-              buttonHref="#"
-              showCard={showCard}
-            />
-            <PortfolioCard
-              ImageHref="https://i.ibb.co/3FKqS1G/image-03.jpg"
-              category="Development"
-              title="Creative Agency"
-              button="View Details"
-              buttonHref="#"
-              showCard={showCard}
-            />
-            <PortfolioCard
-              ImageHref="https://i.ibb.co/m6dq2fX/image-04.jpg"
-              category="Design"
-              title="Creative Agency"
-              button="View Details"
-              buttonHref="#"
-              showCard={showCard}
-            />
-            <PortfolioCard
-              ImageHref="https://i.ibb.co/mCPjBsH/image-05.jpg"
-              category="Marketing"
-              title="Creative Agency"
-              button="View Details"
-              buttonHref="#"
-              showCard={showCard}
-            />
+            {projects?.map((item, index) => {
+              return (
+                <PortfolioCard
+                  key={index}
+                  ImageHref={item?.imageLink}
+                  title={item?.title}
+                  button={item?.button}
+                  buttonHref={item?.href}
+                />
+              );
+            })}
           </div>
         </div>
       </section>
@@ -152,41 +131,23 @@ const Portfolio = () => {
 
 export default Portfolio;
 
-const PortfolioCard = ({
-  showCard,
-  category,
-  ImageHref,
-  title,
-  button,
-  buttonHref,
-}) => {
+const PortfolioCard = ({ ImageHref, title, button, buttonHref, key }) => {
   return (
-    <>
-      <div
-        className={`w-full px-4 md:w-1/2 xl:w-1/3 ${
-          showCard === "all" || showCard === category.toLowerCase()
-            ? "block"
-            : "hidden"
-        }`}
-      >
-        <div className="relative mb-12">
-          <div className="overflow-hidden rounded-[10px]">
-            <img src={ImageHref} alt="portfolio" className="w-full" />
-          </div>
-          <div className="relative z-10 mx-7 -mt-20 rounded-lg bg-white dark:bg-dark-2 py-[34px] px-3 text-center shadow-portfolio dark:shadow-box-dark">
-            <span className="text-primary mb-2 block text-sm font-medium">
-              {category}
-            </span>
-            <h3 className="text-dark dark:text-white mb-5 text-xl font-bold">{title}</h3>
-            <a
-              href={buttonHref}
-              className="text-body-color dark:text-dark-6 hover:border-primary hover:bg-primary inline-block rounded-md border border-stroke dark:border-dark-3 py-[10px] px-7 text-sm font-medium transition hover:text-white"
-            >
-              {button}
-            </a>
-          </div>
+    <div className={`w-full px-4 md:w-1/2 xl:w-1/3 `} key={key}>
+      <div className="relative mb-12">
+        <div className="overflow-hidden rounded-[10px]">
+          <img src={ImageHref} alt="portfolio" className="w-full" />
+        </div>
+        <div className="relative z-10 mx-7 -mt-20 rounded-lg bg-white dark:bg-dark-2 py-[34px] px-3 text-center shadow-portfolio dark:shadow-box-dark">
+          <h3 className="text-dark mb-5 text-xl font-bold">{title}</h3>
+          <a
+            href={buttonHref}
+            className="text-body-color dark:text-dark-6 inline-block rounded-md border border-stroke dark:border-dark-3 py-[10px] px-7 text-sm font-medium transition"
+          >
+            {button}
+          </a>
         </div>
       </div>
-    </>
+    </div>
   );
 };

@@ -8,19 +8,20 @@ export function ContactUs() {
         <Typography
           variant="h1"
           color="blue-gray"
-          className="mb-4 !text-3xl lg:!text-5xl">
-            GET IN TOUCH WITH US
-        
+          className="mb-4 !text-3xl lg:!text-5xl"
+        >
+          GET IN TOUCH WITH US
         </Typography>
         <Typography
           variant="h5"
           color="blue-gray"
           className="mb-4 !text-base lg:!text-2xl"
         >
-          Our team of experts will work closely with you to understand your goals and deliver a truly customized solution that meets your unique needs.
-        
+          Our team of experts will work closely with you to understand your
+          goals and deliver a truly customized solution that meets your unique
+          needs.
         </Typography>
-        
+
         <Typography className="mb-10 font-normal !text-lg lg:mb-20 mx-auto max-w-3xl !text-gray-500">
           Whether it&apos;s a question about our services, a request for
           technical assistance, or suggestions for improvement, our team is
@@ -32,10 +33,7 @@ export function ContactUs() {
             alt="map"
             className="w-full h-full lg:max-h-[510px]"
           />
-          <form
-            action="#"
-            className="flex flex-col gap-4 lg:max-w-sm"
-          >
+          <form action="#" className="flex flex-col gap-4 lg:max-w-sm">
             <Typography
               variant="small"
               className="text-left !font-semibold !text-gray-600"
@@ -142,7 +140,6 @@ export function ContactUs() {
           </form>
         </div>
       </div>
-    
     </section>
   );
 }
